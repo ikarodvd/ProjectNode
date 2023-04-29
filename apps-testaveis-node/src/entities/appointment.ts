@@ -1,6 +1,6 @@
 export interface AppointmentProps {
     customer: string;
-    startAt: Date;
+    startsAt: Date;
     endsAt: Date;
 }
 export class Appointment {
@@ -10,15 +10,15 @@ export class Appointment {
         return this.props.customer
     }
     get startAt (){ 
-        return this.props.startAt
+        return this.props.startsAt
     }
     get endsAt (){
         return this.props.endsAt
     }
 
     constructor(props: AppointmentProps){
-        const {startAt, endsAt} = props
-        if(endsAt <= startAt){
+        const {startsAt, endsAt} = props
+        if(endsAt <= startsAt){
             throw new Error('Invalid end date')
         }
         this.props = props
